@@ -1,0 +1,21 @@
+<%- include('header'); -%>
+    <div class="container about">
+        <center>
+            <h1>Dashboard</h1>
+        </center>
+        <div class="card text-center">
+            <h2 class="card-header">Welcome <%=currentUser.username%>
+            </h2>
+            <div class="card-body">
+                <h5 class="card-title">Account balance: <%=currentUser.balance%>
+                        <% if(currentUser.balance<=0){%>
+                            <h4 style="color:red;">YOUR BALANCE IS NOT ENOUGH YOU CANNOT WITHDRAW</h4>
+                            <%}%>
+                </h5>
+                <a href="/user/withdraw"
+                    class="btn btn-primary <% if(currentUser.balance<=0){%>isDisabled<%}%>">Withdraw</a>
+                <a href="/user/deposit" class="btn btn-success">deposit</a>
+            </div>
+        </div>
+    </div>
+    <%- include('footer'); -%>

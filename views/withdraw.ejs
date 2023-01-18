@@ -1,0 +1,22 @@
+<%- include('header'); -%>
+    <div class="container about">
+        <div class="card text-center">
+            <h2 class="card-header">Welcome <%=currentUser.username%>
+            </h2>
+            <div class="card-body">
+                <h5 class="card-title">Account balance: <%=currentUser.balance%>
+                </h5>
+                <h5 class="card-title">Enter Amount to withdraw
+                </h5>
+                <form action="/user/withdraw" method="POST" class="validated-form" novalidate>
+                    <div class="mb-3">
+                        <input class="form-control" type="number" id="amount" name="amount" autofocus required>
+                    </div>
+                    <button class="btn btn-success btn-block">Withdraw</button>
+                </form>
+                <a href="/user/dashboard" class="btn btn-primary">Back to dashboard</a>
+            </div>
+        </div>
+    </div>
+
+    <%- include('footer'); -%>
